@@ -1,0 +1,2 @@
+include ':app', ':socketlibrary'
+rootProject.name='SocketPro'

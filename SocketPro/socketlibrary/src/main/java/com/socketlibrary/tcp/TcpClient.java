@@ -65,7 +65,7 @@ public class TcpClient {
         }
         //发送消息格式校验
         if (StringUtil.isEmpty(message)) {
-            SocketUtil.w("====不能发空数据===");
+            SocketUtil.i("====不能发空数据===");
             return;
         }
         try {
@@ -73,16 +73,16 @@ public class TcpClient {
             mSocket = new Socket();
             InetSocketAddress address=new InetSocketAddress(ip, port);
             //打印连接信息
-            SocketUtil.w("========tcp客户端socket信息==========");
-            SocketUtil.w("连接主机名(hostName): "+address.getHostName());
-            SocketUtil.w("连接地址(address): "+address.getAddress());
-            SocketUtil.w("连接端口(port): "+address.getPort());
-            SocketUtil.w("连接超时时间(mTimeOut): "+mTimeOut+"(毫秒)");
-            SocketUtil.w("====tcp客户端socket开始建立连接=====");
+            SocketUtil.i("========tcp客户端socket信息==========");
+            SocketUtil.i("连接主机名(hostName): "+address.getHostName());
+            SocketUtil.i("连接地址(address): "+address.getAddress());
+            SocketUtil.i("连接端口(port): "+address.getPort());
+            SocketUtil.i("连接超时时间(mTimeOut): "+mTimeOut+"(毫秒)");
+            SocketUtil.i("====tcp客户端socket开始建立连接=====");
             mSocket.connect(address,mTimeOut);
-            SocketUtil.w("====tcp客户端socket连接成功=====");
+            SocketUtil.i("====tcp客户端socket连接成功=====");
 
-            SocketUtil.w("====tcp客户端socket开始发送消息=====");
+            SocketUtil.i("====tcp客户端socket开始发送消息=====");
             //发送数据
             mOutputStream = mSocket.getOutputStream();
             mBuffOut = new BufferedOutputStream(mOutputStream);
@@ -98,8 +98,8 @@ public class TcpClient {
             mOutputStream.write(b);
             mOutputStream.flush();
             mBuffOut.flush();
-            SocketUtil.w("====tcp客户端socket发送消息成功=====");
-            SocketUtil.w("====tcp客户端socket发送消息为message="+message);
+            SocketUtil.i("====tcp客户端socket发送消息成功=====");
+            SocketUtil.i("====tcp客户端socket发送消息为message="+message);
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -122,10 +122,11 @@ public class TcpClient {
     public String receiveMessage(String charsetName){
         String result=null;
         if(mSocket==null){
-            SocketUtil.w("====mSocket为null,请检查socket连接,可能原因: =====");
-            SocketUtil.w("  1. 服务端未开启");
-            SocketUtil.w("  2. 服务端客户端ip地址不一致");
-            SocketUtil.w("  3. 服务端客户端ip地址一致,但是不在一个网段");
+            SocketUtil.i("====mSocket为null,请检查socket连接,可能原因: =====");
+            SocketUtil.i("  1. 服务端未开启或者服务端停止");
+            SocketUtil.i("  2. 服务端客户端ip地址不一致");
+            SocketUtil.i("  3. 服务端客户端port端口不一致");
+            SocketUtil.i("  4. 服务端客户端ip与port均一致,但是网络不在一个网段");
             return result;
         }
         //字符集校验
@@ -134,7 +135,7 @@ public class TcpClient {
         }
         InputStreamReader inputStreamReader=null;
         BufferedReader bufferedReader=null;
-        SocketUtil.w("====tcp客户端socket开始接收数据=====");
+        SocketUtil.i("====tcp客户端socket开始接收数据=====");
         try {
             mInputStream = mSocket.getInputStream();
             inputStreamReader=new InputStreamReader(mInputStream, Charset.forName(charsetName));
@@ -144,13 +145,13 @@ public class TcpClient {
                 //System.out.println("====读取的最后结果=====result=" + result);
                 break;
             }
-            SocketUtil.w("====tcp客户端socket接收数据完毕!=====");
-            SocketUtil.w("====tcp客户端socket接收数据为result="+result);
+            SocketUtil.i("====tcp客户端socket接收数据完毕!=====");
+            SocketUtil.i("====tcp客户端socket接收数据为result="+result);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
 
-            SocketUtil.w("====tcp客户端socket接收数据失败!=====");
+            SocketUtil.i("====tcp客户端socket接收数据失败!=====");
         }finally {
             //关闭当前方法中用到的流
             try {
@@ -195,7 +196,7 @@ public class TcpClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        SocketUtil.w("====tcp客户端socket关闭=====");
+        SocketUtil.i("====tcp客户端socket关闭=====");
     }
 
 }

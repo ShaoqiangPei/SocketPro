@@ -129,7 +129,7 @@ public class TcpClient {
             return result;
         }
         //字符集校验
-        if(StringUtil.isNotEmpty(charsetName)){
+        if(StringUtil.isEmpty(charsetName)){
             throw new NullPointerException("====charsetName不能为空,请设置字符集,如 SocketConfig.UTF_8 或 SocketConfig.GBK 等=====");
         }
         InputStreamReader inputStreamReader=null;

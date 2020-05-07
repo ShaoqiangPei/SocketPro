@@ -24,9 +24,13 @@ public class TcpServer {
 
     private ServerSocket mServerSocket;
     private Socket mServer;
-    private InputStream mInputStream;
+
     private OutputStream mOutStream;
     private PrintWriter mPrinter;
+
+    private InputStream mInputStream;
+    private InputStreamReader mInputStreamReader;
+    private BufferedReader mBufferedReader;
 
     /***
      * 建立服务端
@@ -90,20 +94,17 @@ public class TcpServer {
     public String receiveMessage(String charsetName){
         String receiveData=null;
 
-        InputStreamReader inputStreamReader=null;
-        BufferedReader bufferedReader=null;
-
         SocketUtil.systemPrintln("=====tcp服务端ServerSocket准备接收消息=========");
         try{
             mServer=mServerSocket.accept();
             mInputStream = mServer.getInputStream();
             if(StringUtil.isNotEmpty(charsetName)) {
-                inputStreamReader = new InputStreamReader(mInputStream, Charset.forName(charsetName));
+                mInputStreamReader = new InputStreamReader(mInputStream, Charset.forName(charsetName));
             }else{
-                inputStreamReader = new InputStreamReader(mInputStream);
+                mInputStreamReader = new InputStreamReader(mInputStream);
             }
-            bufferedReader = new BufferedReader(inputStreamReader);
-            while ((receiveData = bufferedReader.readLine()) != null) { //判断最后一行不存在，为空
+            mBufferedReader = new BufferedReader(mInputStreamReader);
+            while ((receiveData = mBufferedReader.readLine()) != null) { //判断最后一行不存在，为空
                 //读取出的最后结果
                 //SocketUtil.systemPrintln("====读取的最后结果=====result=" + result);
                 break;
@@ -118,16 +119,8 @@ public class TcpServer {
 
             SocketUtil.systemPrintln("=====tcp服务端ServerSocket接收消息失败！=====");
         }finally {
-            try {
-                if(inputStreamReader!=null){
-                    inputStreamReader.close();
-                }
-                if(bufferedReader!=null){
-                    bufferedReader.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            //接收消息时,读写的stream和socket均不能关闭
+            //否则服务端会报错:java.net.SocketException: Socket is closed
         }
         return receiveData;
     }
@@ -137,14 +130,20 @@ public class TcpServer {
      */
     public void close() {
         try {
-            if (mInputStream != null) {
-                mInputStream.close();
-            }
             if (mPrinter != null) {
                 mPrinter.close();
             }
             if (mOutStream != null) {
                 mOutStream.close();
+            }
+            if (mInputStream != null) {
+                mInputStream.close();
+            }
+            if(mInputStreamReader!=null){
+                mInputStreamReader.close();
+            }
+            if(mBufferedReader!=null){
+                mBufferedReader.close();
             }
             if (mServer != null) {
                 mServer.close();

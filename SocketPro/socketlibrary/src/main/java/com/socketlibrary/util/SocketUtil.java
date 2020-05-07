@@ -149,4 +149,12 @@ public class SocketUtil {
         }
     }
 
+    /**System.println打印**/
+    public static void systemPrintln(String message) {
+        if (LOG) {
+            System.out.println(TAG+": " + message);
+        }
+    }
+
+
 }

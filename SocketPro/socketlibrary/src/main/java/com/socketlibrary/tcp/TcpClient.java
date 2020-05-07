@@ -56,7 +56,10 @@ public class TcpClient {
     /**
      * 发送消息
      * @param message 字符串消息
-     * @param charsetName 字符集，如  SocketConfig.UTF_8 或 SocketConfig.GBK
+     * @param charsetName 字符集，如  TcpConfig.UTF_8 或 TcpConfig.GBK,为null时采用编译器默认字符集
+     *
+     * 注：若接收方以 "(receiveData = bufferedReader.readLine()) != null" 方式读取消息，
+     *     则发送的消息结尾要加上 "\n".
      */
     public void sendMessage(String message,String charsetName) {
         //ip和port校验
@@ -99,6 +102,7 @@ public class TcpClient {
             mOutputStream.flush();
             mBuffOut.flush();
             SocketUtil.i("====tcp客户端socket发送消息成功=====");
+            SocketUtil.i("====tcp客户端socket发送消息字符集：charsetName="+charsetName);
             SocketUtil.i("====tcp客户端socket发送消息为message="+message);
         } catch (Exception e) {
             e.printStackTrace();
@@ -116,8 +120,10 @@ public class TcpClient {
     /**
      * 接收消息
      *
-     * @param charsetName 字符集，如  TcpConfig.UTF_8 或 TcpConfig.GBK
+     * @param charsetName 字符集，如  TcpConfig.UTF_8 或 TcpConfig.GBK,为null时采用编译器默认字符集
      * @return
+     *
+     * 注: 发送的消息要以 "\n" 结尾，因为本方法是以 (result = bufferedReader.readLine()) != null 做判断读取stream的
      */
     public String receiveMessage(String charsetName){
         String result=null;
@@ -138,7 +144,11 @@ public class TcpClient {
         SocketUtil.i("====tcp客户端socket开始接收数据=====");
         try {
             mInputStream = mSocket.getInputStream();
-            inputStreamReader=new InputStreamReader(mInputStream, Charset.forName(charsetName));
+            if(StringUtil.isNotEmpty(charsetName)) {
+                inputStreamReader = new InputStreamReader(mInputStream, Charset.forName(charsetName));
+            }else{
+                inputStreamReader = new InputStreamReader(mInputStream);
+            }
             bufferedReader = new BufferedReader(inputStreamReader);
             while ((result = bufferedReader.readLine()) != null) { //判断最后一行不存在，为空
                 //读取出的最后结果
@@ -146,6 +156,7 @@ public class TcpClient {
                 break;
             }
             SocketUtil.i("====tcp客户端socket接收数据完毕!=====");
+            SocketUtil.i("====tcp客户端socket接收数据字符集：charsetName="+charsetName);
             SocketUtil.i("====tcp客户端socket接收数据为result="+result);
         } catch (IOException e) {
             // TODO Auto-generated catch block

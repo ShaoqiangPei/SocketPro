@@ -1,7 +1,8 @@
 ## TcpClient(TCP客户端)使用说明
 
 ### 简介
-`TcpClient`是一个`TCP`实现的客户端封装类，便于开发者快捷建立`tcp`客户端`socket`。
+`TcpClient`是一个`TCP`实现的客户端封装类，便于开发者快捷建立`tcp`客户端`socket`。  
+要用`tcp服务端`可参考[TcpServer](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TcpServer%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)类。
 
 ### 使用说明
 #### 一.tcp通讯基础简介

@@ -1,7 +1,8 @@
 ## TcpServer(TCP服务端)使用说明
 
 ### 简介
-利用`socket`实现`TCP`服务端，方便开发者快速建立一个`tcp`的服务端。
+利用`socket`实现`TCP`服务端，方便开发者快速建立一个`tcp`的服务端。  
+要用`tcp客户端`的话，可以参考[TcpClient](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TcpClient%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)类。
 
 ### 使用说明
 #### 一.tcp服务端severSocket初始化问题

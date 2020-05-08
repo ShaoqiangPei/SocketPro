@@ -27,6 +27,8 @@
 ```
 #### 二. 主要功能类
 ##### TCP
+[TcpClient](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TcpClient%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— tcp客户端工具类  
+
 
 
 

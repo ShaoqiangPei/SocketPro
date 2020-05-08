@@ -26,9 +26,9 @@
    SocketUtil.setDebug(true);
 ```
 #### 二. 主要功能类
-##### TCP
+##### 2.1 TCP
 [TcpClient](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TcpClient%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— tcp客户端工具类  
-
+[TcpServer](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TcpServer%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— tcp服务端工具类  
 
 
 

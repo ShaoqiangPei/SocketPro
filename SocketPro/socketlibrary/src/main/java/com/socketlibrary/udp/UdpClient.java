@@ -22,6 +22,12 @@ public class UdpClient {
     private String ip;//服务端 ip
     private int port;//端口号
 
+    /**
+     * 初始化对象
+     *
+     * @param ip 服务端ip
+     * @param port 约定端口
+     */
     public UdpClient(String ip, int port){
         try {
             this.ip=ip;

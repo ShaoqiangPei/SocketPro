@@ -1,9 +1,7 @@
 package com.socketlibrary.tcp;
 
-import com.socketlibrary.util.SocketConfig;
 import com.socketlibrary.util.SocketUtil;
 import com.socketlibrary.util.StringUtil;
-
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -43,7 +41,7 @@ public class TcpClient {
     }
 
     /**
-     * 建立连接
+     * 设置建立连接的参数
      * @param ip 如: "192.168.1.1"
      * @param port  范围在 0-65535 之间，一般取比较大的值
      */
@@ -64,7 +62,7 @@ public class TcpClient {
     public void sendMessage(String message,String charsetName) {
         //ip和port校验
         if (StringUtil.isEmpty(ip) || port < 0 || port > 65535) {
-            throw new SecurityException("=ip或port<端口>数据格式错误，请调用setSocket(String ip,int port)方法设置合适参数值=");
+            throw new SecurityException("=ip或port<端口>数据格式错误，请调用setSocket(String ip,int port)方法设置合适参数值(0<port<65535)=");
         }
         //发送消息格式校验
         if (StringUtil.isEmpty(message)) {

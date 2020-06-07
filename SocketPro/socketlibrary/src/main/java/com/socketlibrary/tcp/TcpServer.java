@@ -72,7 +72,7 @@ public class TcpServer {
                 mPrinter.flush();
                 SocketUtil.systemPrintln("=====tcp服务端ServerSocket发送消息完毕=========");
                 SocketUtil.systemPrintln("=====tcp服务端ServerSocket发送消息字符集: charsetName="+charsetName);
-                SocketUtil.systemPrintln("=====tcp服务端ServerSocket发送消息内容: message="+message);
+                SocketUtil.systemPrintln("=====tcp服务端ServerSocket发送消息内容: "+message);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -109,10 +109,10 @@ public class TcpServer {
                 //SocketUtil.systemPrintln("====读取的最后结果=====result=" + result);
                 break;
             }
-            SocketUtil.systemPrintln("====tcp客户端socket接收数据为receiveData="+receiveData);
+            SocketUtil.systemPrintln("====tcp客户端socket接收数据为: "+receiveData);
             SocketUtil.systemPrintln("=====tcp服务端ServerSocket接收消息完毕=========");
             SocketUtil.systemPrintln("=====tcp服务端ServerSocket接收消息字符集: charsetName="+charsetName);
-            SocketUtil.systemPrintln("=====tcp服务端ServerSocket接收消息内容: receiveData="+receiveData);
+            SocketUtil.systemPrintln("=====tcp服务端ServerSocket接收消息内容: "+receiveData);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

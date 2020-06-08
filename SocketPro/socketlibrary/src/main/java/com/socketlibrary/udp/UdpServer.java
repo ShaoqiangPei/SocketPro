@@ -1,5 +1,6 @@
 package com.socketlibrary.udp;
 
+import com.socketlibrary.util.SocketHelper;
 import com.socketlibrary.util.SocketUtil;
 import com.socketlibrary.util.StringUtil;
 import java.io.IOException;
@@ -25,6 +26,7 @@ public class UdpServer {
         try {
             mDatagramSocket = new DatagramSocket(port);
             SocketUtil.systemPrintln("========udp 服务端启动!=========");
+            SocketUtil.systemPrintln("udp服务端主机ip："+ SocketHelper.getIpAddress());
         } catch (SocketException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -75,6 +77,7 @@ public class UdpServer {
         mDatagramPacket = new DatagramPacket(mBuffer, mBuffer.length);
         try {
             SocketUtil.systemPrintln("=====udp服务端准备接收消息=========");
+            SocketUtil.systemPrintln("udp服务端主机ip："+ SocketHelper.getIpAddress());
             mDatagramSocket.receive(mDatagramPacket);
             byte data[]=mDatagramPacket.getData();
             if(StringUtil.isNotEmpty(charsetName)) {

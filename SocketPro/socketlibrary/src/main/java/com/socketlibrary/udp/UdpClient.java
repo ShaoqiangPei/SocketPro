@@ -99,6 +99,8 @@ public class UdpClient {
         SocketUtil.i("1.udp客户端与服务端链接地址(ip)不一致");
         SocketUtil.i("2.udp客户端与服务端链接端口(port)不一致");
         SocketUtil.i("3.udp服务端未开启");
+        SocketUtil.i("4.udp客户端未联网或未开联网权限");
+        SocketUtil.i("5.udp客户端与服务端不在一个网段");
         SocketUtil.i("======udp客户端准备接收消息======");
 
         String info=null;

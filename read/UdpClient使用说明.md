@@ -1,8 +1,8 @@
 ## UdpClient(UDP客户端)使用说明
 
 ### 简介
-`UdpClient`是一个`UDP`实现的客户端封装类，便于开发者快速实现`UDP`客户端。
-要用`UDP服务端`可参考UdpServer类。
+`UdpClient`是一个`UDP`实现的客户端封装类，便于开发者快速实现`UDP`客户端。  
+要用`UDP服务端`可参考[UdpServer(UDP服务端)使用说明](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/UdpServer%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)。
 
 ### 使用说明
 #### 一.通讯基础

@@ -75,9 +75,10 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation librarys.implementation_support_appcompat
     testImplementation librarys.testImplementation_test_junit
     androidTestImplementation librarys.androidTestImplementation_ext_junit
     androidTestImplementation librarys.androidTestImplementation_espresso
+    implementation files('libs/netty-all-5.0.0.Alpha2.jar')
 }

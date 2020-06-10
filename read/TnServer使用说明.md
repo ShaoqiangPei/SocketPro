@@ -2,7 +2,7 @@
 
 ### 概述
 `TnServer`是一个利用`netty`实现的`tcp服务端`,利用此类可以快捷实现`tcp`服务端。  
-要了解`netty`实现的`tcp客户端`可参考[TnClient使用说明](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TnClient(%E5%AE%A2%E6%88%B7%E7%AB%AF)%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
+要了解`netty`实现的`tcp客户端`可参考[TnClient使用说明](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TnClient%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)
 
 ### 使用说明
 #### 一 通讯基础

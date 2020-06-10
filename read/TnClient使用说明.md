@@ -1,8 +1,8 @@
-## TnClient(客户端)使用说明
+## TnClient(netty实现tcp客户端)使用说明
 
 ### 概述
 `TnClient`是一个利用`netty`封装实现`tcp客户端`的工具类，开发者可以利用此类迅速实现一个`Tcp客户端`。  
-要用`netty`实现的`tcp服务端`可参考UdpServer(UDP服务端)使用说明。
+要用`netty`实现的`tcp服务端`可参考[TnServer使用说明](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TnServer%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)。
 
 ### 使用说明
 #### 一.通讯基础

@@ -34,7 +34,7 @@
 [UdpServer](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/UdpServer%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— udp服务端工具类  
 ##### 2.3 Netty实现TCP通讯
 [TnClient](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TnClient(%E5%AE%A2%E6%88%B7%E7%AB%AF)%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— netty实现tcp客户端工具类  
-[TnServer](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TnServer%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— netty实现tcp客户端工具类  
+[TnServer](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TnServer%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— netty实现tcp服务端工具类  
 
 
 

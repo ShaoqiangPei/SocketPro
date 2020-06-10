@@ -45,6 +45,12 @@ public class TnClient {
         SocketUtil.i("========netty_tcp客户端信息==========");
         SocketUtil.i("服务端地址(ip): "+ip);
         SocketUtil.i("约定端口(port): "+port);
+        SocketUtil.i("=====netty_tcp客户端接收不到消息可能原因======");
+        SocketUtil.i("1.netty_tcp客户端与服务端链接地址(ip)不一致");
+        SocketUtil.i("2.netty_tcp客户端与服务端链接端口(port)不一致");
+        SocketUtil.i("3.netty_tcp服务端未开启");
+        SocketUtil.i("4.netty_tcp客户端未联网或未开联网权限");
+        SocketUtil.i("5.netty_tcp客户端与服务端不在一个网段");
 
         if(StringUtil.isEmpty(ip)){
             throw new NullPointerException("======请初始化TnClient并设置ip======");

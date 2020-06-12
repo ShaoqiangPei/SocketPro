@@ -1,8 +1,8 @@
 ## UnClient(netty实现udp客户端)使用说明
 
 ### 概述
-`UnClient`是一个利用`netty`封装实现`udp`客户端的工具类，开发者可以利用此类迅速实现一个`udp`客户端。
-要用`netty`实现的`udp`服务端可参考`UnServer`使用说明。
+`UnClient`是一个利用`netty`封装实现`udp`客户端的工具类，开发者可以利用此类迅速实现一个`udp`客户端。  
+要用`netty`实现的`udp`服务端可参考[UnServer使用说明](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/UnServer%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md)。
 
 ### 使用说明
 #### 一.通讯基础

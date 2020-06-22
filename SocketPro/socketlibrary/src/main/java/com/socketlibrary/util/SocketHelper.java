@@ -1,5 +1,9 @@
 package com.socketlibrary.util;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -51,6 +55,17 @@ public class SocketHelper {
             System.err.println("IP地址获取失败" + e.toString());
         }
         return null;
+    }
+
+    /***
+     * 检查网络是否可用
+     * 需要权限 ACCESS_NETWORK_STATE
+     * @return
+     */
+    public static boolean isNetworkConnected(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+        return info != null && info.isAvailable();
     }
 
 }

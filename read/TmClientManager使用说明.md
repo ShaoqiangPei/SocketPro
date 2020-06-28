@@ -11,7 +11,13 @@ mina-core-2.0.16.jar
 slf4j-android-1.7.21.jar
 slf4j-api-1.7.21.jar
 ```
-此三个jar包已经在库中集成呢共，大家只需要了解就行。
+由于本库集中了`mina长连接`的客户端和服务端，所以客户端`slf4j-android-1.7.21.jar`与服务端所需`slf4j-jdk14-1.7.21.jar`冲突，为了实现兼容，本库就使用以下三个包：
+```
+mina-core-2.0.16.jar
+slf4j-jdk14-1.7.21.jar
+slf4j-api-1.7.21.jar
+```
+此三个jar包已经在库中集成了，大家只需要了解就行。
 #### 二. 在 Activity 中的使用
 在`Activity`中使用时，其实是涉及到两个类的：`TmClientConfig`与`TmClientManager`，其中`TmClientConfig`是做通讯的一些基本设置，`TmClientManager`是处理通讯的连接和断开的。  
 下面看看在`Activity`中具体使用吧:

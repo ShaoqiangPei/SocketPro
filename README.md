@@ -39,6 +39,8 @@
 [UnClient](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/UnClient%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— netty实现udp客户端工具类  
 [UnServer](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/UnServer%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— netty实现udp服务端工具类
 
-
+##### 2.5 Mina实现tcp长连接
+[TmClientManager](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TmClientManager%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— mina实现tcp长连接客户端工具类  
+[TmServerManager](https://github.com/ShaoqiangPei/SocketPro/blob/master/read/TmServerManager%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md) ———— mina实现tcp长连接服务端工具类
 
 

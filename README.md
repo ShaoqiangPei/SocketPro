@@ -1,7 +1,10 @@
 # SocketPro
+
+[![](https://jitpack.io/v/ShaoqiangPei/SocketPro.svg)](https://jitpack.io/#ShaoqiangPei/SocketPro)
+
 ## 简介
 `SocketPro`是一个提供 `socket` 通讯的工具库,当开发者需要做服务端或客户端的调试时，可以接入本库快速实现一个简单的`客户端`或`服务端`，以帮助开发者实现socket通讯联调。  
-`SocketPro`包含的通讯类型有:`TCP`,`UDP`,`netty实现tcp,udp通讯`。
+`SocketPro`包含的通讯类型有:`TCP`,`UDP`,`netty实现tcp,udp通讯`,`mina实现tcp长连接`。
 
 ### 使用说明
 #### 一. 库依赖

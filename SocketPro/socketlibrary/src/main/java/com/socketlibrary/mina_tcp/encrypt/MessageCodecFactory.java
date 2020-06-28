@@ -36,5 +36,5 @@ public class MessageCodecFactory implements ProtocolCodecFactory {
     public ProtocolEncoder getEncoder(IoSession session) throws Exception {
         return encoder;
     }
-    
+
 }

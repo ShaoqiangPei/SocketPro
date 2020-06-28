@@ -83,7 +83,6 @@ dependencies {
     implementation files('libs/netty-all-5.0.0.Alpha2.jar')
 
     implementation files('libs/mina-core-2.0.16.jar')
-    api files('libs/slf4j-android-1.7.21.jar')
+    implementation files('libs/slf4j-android-1.7.21.jar')
     implementation files('libs/slf4j-api-1.7.21.jar')
-    api files('libs/slf4j-jdk14-1.7.21.jar')
 }

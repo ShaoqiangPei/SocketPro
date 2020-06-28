@@ -1,4 +1,4 @@
-package com.socketlibrary.mina_tcp.tm_connect;
+package com.socketlibrary.mina_tcp.tmc_connect;
 
 import android.content.Context;
 

@@ -1,7 +1,6 @@
-package com.socketlibrary.mina_tcp.tm_connect;
+package com.socketlibrary.mina_tcp.tmc_connect;
 
 import com.socketlibrary.util.SocketUtil;
-
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;

@@ -1,4 +1,4 @@
-package com.socketlibrary.mina_tcp.tm_connect;
+package com.socketlibrary.mina_tcp.tmc_connect;
 
 import android.content.Context;
 import com.socketlibrary.mina_tcp.encrypt.MessageCodecFactory;
@@ -28,9 +28,9 @@ import java.nio.charset.Charset;
  */
 public class TmClientManager {
 
-    private static final String MINA_LOGGER="Logger";
-    private static final String MINA_CODEC="codec";
-    private static final String MINA_HEART_BEAT="heart_beat";
+    private static final String MINA_LOGGER="tmc_Logger";
+    private static final String MINA_CODEC="tmc_codec";
+    private static final String MINA_HEART_BEAT="tmc_heart_beat";
 
     private TmClientConfig mConfig;
     private WeakReference<Context> mReference;
@@ -168,13 +168,6 @@ public class TmClientManager {
         if(mConfig.isReconnect()){
             SocketUtil.i("断开重连时间间隔："+mConfig.getRcDelayTime()+"(毫秒)");
         }
-        SocketUtil.i("********若连接失败可能原因****************");
-        SocketUtil.i("1.mina_tcp客户端与服务端链接地址(ip)不一致");
-        SocketUtil.i("2.mina_tcp客户端与服务端链接端口(port)不一致");
-        SocketUtil.i("3.mina_tcp服务端未开启");
-        SocketUtil.i("4.mina_tcp客户端未联网或未开联网权限");
-        SocketUtil.i("5.mina_tcp客户端与服务端不在一个网段");
-        SocketUtil.i("========================================");
     }
 
     /***
@@ -195,12 +188,21 @@ public class TmClientManager {
                 future = mConnector.connect(mAddress);
                 //等待连接创立完成
                 future.awaitUninterruptibly();
+
+                mSession=future.getSession();
             } catch (Exception e) {
                 e.printStackTrace();
                 SocketUtil.e("=====mina_tcp客户端连接错误========="+e.getMessage());
+
+                SocketUtil.i("********连接失败可能原因****************");
+                SocketUtil.i("1.mina_tcp客户端与服务端链接地址(ip)不一致");
+                SocketUtil.i("2.mina_tcp客户端与服务端链接端口(port)不一致");
+                SocketUtil.i("3.mina_tcp服务端未开启");
+                SocketUtil.i("4.mina_tcp客户端未联网或未开联网权限");
+                SocketUtil.i("5.mina_tcp客户端与服务端不在一个网段");
+
                 return false;
             }
-            mSession=future.getSession();
         }else{
             SocketUtil.i("========当前无网络,请检测网络连接=========");
             if (mSession != null) {

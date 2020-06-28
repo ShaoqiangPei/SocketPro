@@ -85,4 +85,5 @@ dependencies {
     implementation files('libs/mina-core-2.0.16.jar')
     implementation files('libs/slf4j-android-1.7.21.jar')
     implementation files('libs/slf4j-api-1.7.21.jar')
+    implementation files('libs/slf4j-jdk14-1.7.21.jar')
 }
